@@ -3,6 +3,8 @@
 [![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridge.dev/2WBms5Q)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.12.0-blue.svg)
 [![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/general)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
+[![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/pci)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
+[![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/cis_kubernetes)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
 
 TerraGoat is Bridgecrew's "Vulnerable by Design" Terraform repository.
 ![Terragoat](terragoat-logo.png)
