@@ -1,8 +1,9 @@
 # TerraGoat - Vulnerable Terraform Infrastructure
 
-[![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/general)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
-[![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/pci)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
-[![Errors](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/cis_kubernetes)](https://www.bridgecrew.cloud/incidents/?ALL_SEVERITY=true&Open=true&accounts=try-bridgecrew%2Fterragoat)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=try-bridgecrew%2Fterragoat&benchmark=INFRASTRUCTURE+SECURITY)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/pci)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=try-bridgecrew%2Fterragoat&benchmark=PCI-DSS+V3.2)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/cis_kubernetes)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=try-bridgecrew%2Fterragoat&benchmark=CIS+KUBERNETES+V1.5)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/try-bridgecrew/terragoat/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=try-bridgecrew%2Fterragoat&benchmark=SOC2)
 
 [![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridge.dev/2WBms5Q)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.12.0-blue.svg)
