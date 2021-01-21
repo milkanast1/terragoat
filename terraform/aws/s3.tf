@@ -7,6 +7,9 @@ resource "aws_s3_bucket" "data" {
   bucket        = "${local.resource_prefix.value}-data"
   acl           = "public-read"
   force_destroy = true
+  encryption {
+    enabled = false
+    }
   tags = {
     Name        = "${local.resource_prefix.value}-data"
     Environment = local.resource_prefix.value
