@@ -71,7 +71,7 @@ resource "aws_s3_bucket" "misconfigured" {
   acl           = "public-write"
   force_destroy = true
   tags = {
-    Name        = "suppress_this"
+    Name        = "bc-jenkins"
     Environment = local.resource_prefix.value
   }
  }
@@ -81,7 +81,7 @@ resource "aws_s3_bucket_object" "data_object" {
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
   tags = {
-    Name        = "suppress_this"
+    Name        = "bc-jenkins"
     Environment = local.resource_prefix.value
   }
 }
