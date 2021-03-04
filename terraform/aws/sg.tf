@@ -11,7 +11,7 @@ resource "aws_api_gateway_method" "any" {
 }
 
 
-resource "aws_security_group" "bar-sg" {
+resource "aws_security_group" "port-22" {
   name   = "sg-bar"
   vpc_id = aws_vpc.main.id
 
@@ -37,7 +37,7 @@ resource "aws_security_group" "bar-sg" {
   }
 }  
 
-resource "aws_security_group" "bar-sg" {
+resource "aws_security_group" "port-33" {
   name   = "sg-bar"
   vpc_id = aws_vpc.main.id
 
@@ -63,14 +63,14 @@ resource "aws_security_group" "bar-sg" {
   }
 }  
 
-resource "aws_s3_bucket" "data" {
+resource "aws_s3_bucket" "misconfigured" {
   # Test
   # bucket is public
   # bucket is not encrypted
   # bucket does not have access logs
   # bucket does not have versioning
   bucket        = "${local.resource_prefix.value}-data"
-  acl           = "public-read"
+  acl           = "public-write"
   force_destroy = true
   tags = {
     Name        = "${local.resource_prefix.value}-data"
