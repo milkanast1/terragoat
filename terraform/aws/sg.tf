@@ -4,7 +4,6 @@ resource "aws_api_gateway_method" "any" {
   http_method   = "ANY"
   authorization = "NONE"
   authorizer_id = aws_api_gateway_authorizer.this.id
-
   request_parameters = {
     "method.request.path.proxy" = true
   }
@@ -14,7 +13,6 @@ resource "aws_api_gateway_method" "any" {
 resource "aws_security_group" "port-22" {
   name   = "sg-bar"
   vpc_id = aws_vpc.main.id
-
   ingress {
     from_port = 22
     to_port   = 22
@@ -108,7 +106,7 @@ resource "aws_s3_bucket" "operations" {
   bucket = "${local.resource_prefix.value}-operations"
   acl    = "private"
   versioning {
-    enabled = true
+    enabled = false
   }
   force_destroy = true
   tags = {
