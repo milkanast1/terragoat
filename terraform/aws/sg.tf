@@ -118,7 +118,7 @@ resource "aws_s3_bucket" "operations" {
   acl    = "private"
   
   versioning {
-    enabled = false
+    enabled = true
   }
   force_destroy = true
   tags = {
