@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "data" {
   
+  
   # Test
   # bucket is public
   # bucket is not encrypted
@@ -16,6 +17,7 @@ resource "aws_s3_bucket" "data" {
 
 resource "aws_s3_bucket_object" "data_object" {
   
+  
   bucket = aws_s3_bucket.data.id
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
@@ -26,6 +28,7 @@ resource "aws_s3_bucket_object" "data_object" {
 }
 
 resource "aws_s3_bucket" "financials" {
+  
   
   # bucket is not encrypted
   # bucket does not have access logs
@@ -41,6 +44,7 @@ resource "aws_s3_bucket" "financials" {
 }
 
 resource "aws_s3_bucket" "operations" {
+  
   
   # bucket is not encrypted
   # bucket does not have access logs
@@ -59,6 +63,7 @@ resource "aws_s3_bucket" "operations" {
 
 resource "aws_s3_bucket" "data_science" {
   
+  
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
   acl    = "private"
@@ -73,6 +78,7 @@ resource "aws_s3_bucket" "data_science" {
 }
 
 resource "aws_s3_bucket" "logs" {
+  
   
   bucket = "${local.resource_prefix.value}-logs"
   acl    = "log-delivery-write"
