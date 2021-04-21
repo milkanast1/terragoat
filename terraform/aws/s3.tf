@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "data" {
+  
   # Test
   # bucket is public
   # bucket is not encrypted
@@ -14,6 +15,7 @@ resource "aws_s3_bucket" "data" {
 }
 
 resource "aws_s3_bucket_object" "data_object" {
+  
   bucket = aws_s3_bucket.data.id
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
@@ -24,6 +26,7 @@ resource "aws_s3_bucket_object" "data_object" {
 }
 
 resource "aws_s3_bucket" "financials" {
+  
   # bucket is not encrypted
   # bucket does not have access logs
   # bucket does not have versioning
