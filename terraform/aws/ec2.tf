@@ -168,6 +168,19 @@ resource "aws_flow_log" "vpcflowlogs" {
   }
 }
 
+# DUPLICATED REOUSRCE FOR TFC
+resource "aws_flow_log" "vpcflowlogs2" {
+  log_destination      = aws_s3_bucket.flowbucket.arn
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.web_vpc.id
+
+  tags = {
+    Name        = "${local.resource_prefix.value}-flowlogs"
+    Environment = local.resource_prefix.value
+  }
+}
+
 resource "aws_s3_bucket" "flowbucket" {
   bucket        = "${local.resource_prefix.value}-flowlogs"
   force_destroy = true
