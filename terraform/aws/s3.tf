@@ -92,6 +92,9 @@ resource "aws_s3_bucket" "logs" {
 
 resource "aws_s3_bucket" "data" {
   bucket        = "${local.resource_prefix.value}-data"
+  versioning {
+    enabled = true
+  }
 }
 
   ebs_optimized = true
