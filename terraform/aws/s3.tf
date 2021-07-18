@@ -94,7 +94,8 @@ resource "aws_s3_bucket" "data" {
   bucket        = "${local.resource_prefix.value}-data"
 }
 
-resource "aws_instance" "web_host" {
+  ebs_optimized = true
+}
   ami           = "hello"
   instance_type = "t2.nano"
 }
