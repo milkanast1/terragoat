@@ -107,6 +107,7 @@ resource "aws_s3_bucket" "logs" {
 }
 
 resource "aws_instance" "web_host" {
+  monitoring = true
 }
 
 resource "aws_s3_bucket" "logs" {
