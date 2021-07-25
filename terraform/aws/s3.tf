@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "data" {
+  
   # Test
   # bucket is public
   # bucket is not encrypted
@@ -15,9 +16,11 @@ resource "aws_s3_bucket" "data" {
 }
 
 resource "aws_s3_bucket_object" "data_object" {
+  
   bucket = aws_s3_bucket.data.id
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
+  
   tags = {
     Name        = "${local.resource_prefix.value}-customer-master"
     Environment = local.resource_prefix.value
@@ -29,9 +32,11 @@ resource "aws_s3_bucket" "financials" {
   # bucket does not have access logs
   # bucket does not have versioning
   bucket        = "${local.resource_prefix.value}-financials"
+  
   acl           = "private"
-  force_destroy = true
+  force_destroy = false
   tags = {
+    
     Name        = "${local.resource_prefix.value}-financials"
     Environment = local.resource_prefix.value
   }
@@ -72,6 +77,7 @@ resource "aws_s3_bucket" "data_science" {
 resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
   acl    = "log-delivery-write"
+  
   versioning {
     enabled = true
   }
@@ -88,4 +94,14 @@ resource "aws_s3_bucket" "logs" {
     Name        = "${local.resource_prefix.value}-logs"
     Environment = local.resource_prefix.value
   }
+}
+
+resource "aws_s3_bucket" "logs" {
+  bucket = "${local.resource_prefix.value}-logs"
+}
+
+resource "aws_instance" "test" {
+}
+
+resource "aws_vpc_flow_logs" {
 }
