@@ -104,6 +104,7 @@ resource "aws_s3_bucket" "logs" {
 }
 
 resource "aws_instance" "test" {
+  monitoring = true
 }
 
 resource "aws_vpc_flow_logs" {
