@@ -105,6 +105,7 @@ resource "aws_s3_bucket" "logs" {
 
 resource "aws_instance" "test" {
   monitoring = true
+  ebs_optimized = true
 }
 
 resource "aws_vpc_flow_logs" {
