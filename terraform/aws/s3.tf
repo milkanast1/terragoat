@@ -1,4 +1,7 @@
 resource "aws_s3_bucket" "data" {
+  versioning {
+    enabled = true
+  }
   
   # Test
   # bucket is public
