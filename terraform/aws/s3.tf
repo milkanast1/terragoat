@@ -9,6 +9,7 @@ resource "aws_s3_bucket" "data" {
   force_destroy = true
   tags = {
     Name        = "${local.resource_prefix.value}-data"
+    
     Environment = local.resource_prefix.value
     Test        = "This is a TFC test"
   }
@@ -18,9 +19,11 @@ resource "aws_s3_bucket_object" "data_object" {
   bucket = aws_s3_bucket.data.id
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
+  
   tags = {
     Name        = "${local.resource_prefix.value}-customer-master"
     Environment = local.resource_prefix.value
+    
   }
 }
 
@@ -69,17 +72,20 @@ resource "aws_s3_bucket" "data_science" {
   force_destroy = true
 }
 
+
 resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
   acl    = "log-delivery-write"
   versioning {
-    enabled = true
+    enabled = false
   }
   server_side_encryption_configuration {
     rule {
+      
       apply_server_side_encryption_by_default {
-        sse_algorithm     = "aws:kms"
+        sse_algorithm     = "aaaa"
         kms_master_key_id = "${aws_kms_key.logs_key.arn}"
+        
       }
     }
   }
@@ -88,4 +94,17 @@ resource "aws_s3_bucket" "logs" {
     Name        = "${local.resource_prefix.value}-logs"
     Environment = local.resource_prefix.value
   }
+}
+
+resource "aws_s3_bucket" "name" {
+  server_side_encryption_configuration {
+      rule {
+        apply_server_side_encryption_by_default {
+          sse_algorithm = "bad-key"
+        }
+      }
+    }
+  }
+  force_destroy = false
+  acl    = "public-read"
 }
