@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "data" {
+  
   # Test
   # bucket is public
   # bucket is not encrypted
@@ -15,6 +16,7 @@ resource "aws_s3_bucket" "data" {
 }
 
 resource "aws_s3_bucket_object" "data_object" {
+  
   bucket = aws_s3_bucket.data.id
   key    = "customer-master.xlsx"
   source = "resources/customer-master.xlsx"
@@ -71,14 +73,16 @@ resource "aws_s3_bucket" "data_science" {
 
 resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
+  
   acl    = "log-delivery-write"
   versioning {
-    enabled = true
+    
+    enabled = false
   }
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
-        sse_algorithm     = "aws:kms"
+        sse_algorithm     = "aaa"
         kms_master_key_id = "${aws_kms_key.logs_key.arn}"
       }
     }
@@ -88,4 +92,7 @@ resource "aws_s3_bucket" "logs" {
     Name        = "${local.resource_prefix.value}-logs"
     Environment = local.resource_prefix.value
   }
+}
+
+resource "aws_s3_bucket" "test" {
 }
