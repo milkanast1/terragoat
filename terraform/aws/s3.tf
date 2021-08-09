@@ -1,91 +1,103 @@
 resource "aws_s3_bucket" "data" {
-  # Test
+
   # bucket is public
   # bucket is not encrypted
   # bucket does not have access logs
   # bucket does not have versioning
-  bucket        = "${local.resource_prefix.value}-data"
-  acl           = "public-read"
+  
+  bucket = "${local.resource_prefix.value}-data-mor4"
+  acl = "private"
+  
   force_destroy = true
+  
+  arn = "arn:aws:s3:::619572639823-acme-dev-data-mor4"
+  
   tags = {
-    Name        = "${local.resource_prefix.value}-data"
+    Name = "${local.resource_prefix.value}-data-mor4"
     Environment = local.resource_prefix.value
-    Test        = "This is a TFC test"
+  }
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+      
+      
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+  versioning {
+    enabled = true
+    
   }
 }
 
-resource "aws_s3_bucket_object" "data_object" {
-  bucket = aws_s3_bucket.data.id
-  key    = "customer-master.xlsx"
-  source = "resources/customer-master.xlsx"
+resource "aws_s3_bucket" "data2" {
+  # bucket is public
+  
+  # bucket is not encrypted
+  # bucket does not have access logs
+  # bucket does not have versioning
+  # checkov:skip=BC_AWS_S3_14:milkana test
+  
+  
+  bucket = "${local.resource_prefix.value}-data-mor5"
+  
+  acl = "private"
+  force_destroy = true
+  arn = ""
+  
   tags = {
-    Name        = "${local.resource_prefix.value}-customer-master"
+  
+    Name = "${local.resource_prefix.value}-data-mor5"
     Environment = local.resource_prefix.value
+  }
+  
+  versioning {
+    enabled = true
   }
 }
 
 resource "aws_s3_bucket" "financials" {
   # bucket is not encrypted
   # bucket does not have access logs
+  
   # bucket does not have versioning
-  bucket        = "${local.resource_prefix.value}-financials"
+  # checkov:skip=BC_AWS_S3_14:mor test
+  
+  # checkov:skip=BC_AWS_S3_16:mor test2
+  arn           = "arn:aws:s3:::619572639823-acme-dev-financials-test-mor4"
+  
+  bucket        = "${local.resource_prefix.value}-financials-test-mor4"
+  
   acl           = "private"
   force_destroy = true
   tags = {
-    Name        = "${local.resource_prefix.value}-financials"
+    Name        = "${local.resource_prefix.value}-financials-test-mor4"
+    
+    
     Environment = local.resource_prefix.value
   }
-
 }
 
-resource "aws_s3_bucket" "operations" {
-  
+resource "aws_s3_bucket" "test_bucket_supp_1" {
   # bucket is not encrypted
   # bucket does not have access logs
-  bucket = "${local.resource_prefix.value}-operations"
-  acl    = "private"
-  versioning {
-    enabled = true
-  }
+  
+  # bucket does not have versioning
+  # checkov:skip=BC_AWS_S3_14:mor test 123
+  arn           = "arn:aws:s3:::619572639823-acme-dev-financials-test-mor4"
+  bucket        = "${local.resource_prefix.value}-financials-test-mor4"
+  
+  acl           = "private"
+  
+  
   force_destroy = true
   tags = {
-    Name        = "${local.resource_prefix.value}-operations"
+    Name        = "${local.resource_prefix.value}-financials-test-mor4"
     Environment = local.resource_prefix.value
   }
-
-}
-
-resource "aws_s3_bucket" "data_science" {
-  # bucket is not encrypted
-  bucket = "${local.resource_prefix.value}-data-science"
-  acl    = "private"
   versioning {
     enabled = true
-  }
-  logging {
-    target_bucket = "${aws_s3_bucket.logs.id}"
-    target_prefix = "log/"
-  }
-  force_destroy = true
-}
-
-resource "aws_s3_bucket" "logs" {
-  bucket = "${local.resource_prefix.value}-logs"
-  acl    = "log-delivery-write"
-  versioning {
-    enabled = true
-  }
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm     = "aws:kms"
-        kms_master_key_id = "${aws_kms_key.logs_key.arn}"
-      }
-    }
-  }
-  force_destroy = true
-  tags = {
-    Name        = "${local.resource_prefix.value}-logs"
-    Environment = local.resource_prefix.value
+    
   }
 }
