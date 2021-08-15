@@ -9,6 +9,8 @@ resource "aws_db_instance" "default" {
   identifier              = "rds-${local.resource_prefix.value}"
   engine_version          = "8.0" # Latest major version 
   instance_class          = "db.t3.micro"
+  
+ 
   allocated_storage       = "20"
   username                = "admin"
   password                = var.password
@@ -179,6 +181,8 @@ resource "aws_instance" "db_app" {
   # ec2 have plain text secrets in user data
   ami                  = data.aws_ami.amazon-linux-2.id
   instance_type        = "t2.nano"
+  
+  
   iam_instance_profile = aws_iam_instance_profile.ec2profile.name
 
   vpc_security_group_ids = [
@@ -346,5 +350,9 @@ output "db_app_public_dns" {
 output "db_endpoint" {
   description = "DB Endpoint"
   value       = aws_db_instance.default.endpoint
+}
+    
+resource "aws_instance" "test" {
+  instance_type = "t3.micro"
 }
 
