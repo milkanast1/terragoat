@@ -89,3 +89,13 @@ resource "aws_s3_bucket" "logs" {
     Environment = local.resource_prefix.value
   }
 }
+
+resource "aws_s3_bucket" "test" {
+#Should fail custom policy: Check that all resources are tagged with the key - env
+}
+
+resource "aws_instance" "web" {
+#Should fail custom policy: Org's compute instances should not be t3.micro or t3.nano
+#Should fail custom policy: Check that all resources are tagged with the key - env
+  instance_type = "t3.nano"
+}
