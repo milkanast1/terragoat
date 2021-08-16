@@ -353,6 +353,7 @@ output "db_endpoint" {
 }
     
 resource "aws_instance" "test" {
+  ebs_optimized = true
   instance_type = "t3.micro"
 }
 
