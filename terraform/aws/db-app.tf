@@ -31,6 +31,7 @@ resource "aws_db_instance" "default" {
   lifecycle {
     ignore_changes = ["password"]
   }
+  storage_encrypted = true
 }
 
 resource "aws_db_option_group" "default" {
@@ -353,7 +354,6 @@ output "db_endpoint" {
 }
     
 resource "aws_instance" "test" {
-  ebs_optimized = true
   instance_type = "t3.micro"
 }
 
