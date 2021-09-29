@@ -160,7 +160,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 #10 lines were deleted 
-resource "azurerm_app_service" "example" {
+resource "azurerm_app_service" "example-change" {
  # line added within resource
  # line added within resource
  # line added within resource
