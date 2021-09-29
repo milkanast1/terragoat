@@ -143,6 +143,10 @@ resource "azurerm_app_service_plan" "example" {
   }
 }
 
+ ## Line added
+ ## Line added
+ ## Line added
+ ## Line added - below resource was in line 146
 resource "azurerm_app_service" "example" {
   name                = "guy-test-app-service"
   location            = azurerm_resource_group.example.location
