@@ -151,6 +151,7 @@ resource "azurerm_postgresql_server" "postgress" {
   threat_detection_policy = {
     enabled = true
   }
+  infrastructure_encryption_enabled = true
 }
 
 resource "azurerm_resource_group" "example" {
