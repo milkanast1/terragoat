@@ -56,6 +56,7 @@ resource "aws_s3_bucket" "operations" {
 }
 
 resource "aws_s3_bucket" "data_science" {
+  
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
   acl    = "private"
@@ -70,6 +71,7 @@ resource "aws_s3_bucket" "data_science" {
 }
 
 resource "aws_s3_bucket" "logs" {
+  
   bucket = "${local.resource_prefix.value}-logs"
   acl    = "log-delivery-write"
   versioning {
