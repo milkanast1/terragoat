@@ -148,6 +148,9 @@ resource "azurerm_postgresql_server" "postgress" {
   #added_line
   #added_line
   #added_line
+  threat_detection_policy = {
+    enabled = true
+  }
 }
 
 resource "azurerm_resource_group" "example" {
