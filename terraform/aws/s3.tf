@@ -134,6 +134,9 @@ resource "azurerm_resource_group" "example" {
 
 #10 lines were deleted 
 resource "azurerm_app_service" "example" {
+ # line added within resource
+ # line added within resource
+ # line added within resource
   name                = "guy-test-app-service"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
