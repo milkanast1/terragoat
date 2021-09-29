@@ -132,21 +132,7 @@ resource "azurerm_resource_group" "example" {
   location = "West Europe"
 }
 
-resource "azurerm_app_service_plan" "example" {
-  name                = "example-appserviceplan"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
-}
-
- ## Line added
- ## Line added
- ## Line added
- ## Line added - below resource was in line 146
+#10 lines were deleted 
 resource "azurerm_app_service" "example" {
   name                = "guy-test-app-service"
   location            = azurerm_resource_group.example.location
