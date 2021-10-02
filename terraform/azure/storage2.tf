@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 resource "azurerm_managed_disk" "example" {
 Fix 3
   name                 = "terragoat-disk-${var.environment}"
