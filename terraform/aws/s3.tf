@@ -91,6 +91,9 @@ resource "aws_s3_bucket" "logs" {
 }
 
 resource "aws_s3_bucket" "test" {
+  
+  #NO COMPLIANCE CHANGE
+  
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
