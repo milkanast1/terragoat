@@ -214,3 +214,6 @@ resource "aws_s3_bucket" "test5" {
     enabled = true
   }
 }
+
+resource "aws_s3_bucket" "firstRun" {
+}
