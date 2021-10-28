@@ -102,3 +102,6 @@ resource "aws_s3_bucket" "test" {
     enabled = true
   }
 }
+
+resource "aws_s3_bucket" "test2" {
+}
