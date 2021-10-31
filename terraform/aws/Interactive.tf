@@ -1,3 +1,6 @@
+resource "aws_s3_bucket" "two" {
+}
+
 resource "aws_s3_bucket" "one" {
   versioning {
     enabled = true
@@ -12,5 +15,3 @@ resource "aws_s3_bucket" "one" {
   }
 }
 
-resource "aws_s3_bucket" "two" {
-}
