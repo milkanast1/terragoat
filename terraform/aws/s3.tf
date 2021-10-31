@@ -91,4 +91,7 @@ resource "aws_s3_bucket" "logs" {
 }
 
 resource "aws_s3_bucket" "test1" {
+  versioning {
+    enabled = true
+  }
 }
